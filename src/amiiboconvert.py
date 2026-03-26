@@ -7,8 +7,8 @@ Modified by Lamp, VapidAnt, bjschafer, Lanjelin
 Refactored with explicit CLI modes and enhanced file handling
 
 Usage:
-  Single file:  python3 amiibo.py --file path/to/Wario.bin -o path/to/Wario.nfc
-  Directory:    python3 amiibo.py --dir path/to/bins -o path/to/output
+  Single file:  python3 amiiboconvert.py --file path/to/Wario.bin -o path/to/Wario.nfc
+  Directory:    python3 amiiboconvert.py --dir path/to/bins -o path/to/output
 """
 import argparse
 import logging
