@@ -1,26 +1,33 @@
 # AmiiboFlipperConverter
 
-Converts Amiibo .bins to a flipper compatible format
+Converts amiibo `.bin` dumps to Flipper-compatible `.nfc` files.
 
-Run `amiiboconvert.py -i [filename].bin` to convert a single file.
+Convert a single file:
 
-To convert multiple files in a directory, run `amiiboconvert.py -i [input-folder] -o [output-folder]`.
-If you want to keep the folder structure, you would need to pass an extra `-t` argument, eg. `amiiboconvert.py -i [input-folder] -o [output-folder] -t`
+`python3 amiiboconvert.py --file [path-to-file].bin -o [output].nfc`
 
-To display help, run `amiiboconvert.py -h`
+You can also pass an output folder for single-file mode:
 
-The original code was created in the Flipper Discord by Friendartiste
+`python3 amiiboconvert.py --file [path-to-file].bin -o [output-folder]`
 
-The code was modified to run itteratively by Lamp
+Convert multiple files in a directory (recursive):
 
-I, VapidAnt, have modified the code to work in a variety of situations with a recursive function and have uploaded to github
-I believe this will make it easy to modify the code in the future and track changes over time.
+`python3 amiiboconvert.py --dir [input-folder] -o [output-folder]`
 
-The code was modfied by Lanjelin to be able to handle .bin-files of varying sizes.
-Option to keep folder structure in the output folder added as well. Updated README/docs.
+If some dumps are larger than 540 bytes and you want to trim them automatically:
 
-If you have problems, please make an issue or ping me in the flipper discord.
+`python3 amiiboconvert.py --dir [input-folder] -o [output-folder] --trim-oversize`
 
-Feel free to itterate off this and make pull requests.
+If you only want to log and skip oversize dumps:
 
-Happy Flipping!
+`python3 amiiboconvert.py --dir [input-folder] -o [output-folder] --log-oversize-only`
+
+To provide an NTAG originality signature:
+
+`python3 amiiboconvert.py --file [path-to-file].bin -o [output].nfc --signature-hex [64-hex-chars-or-32-bytes]`
+
+To display help, run:
+
+`python3 amiiboconvert.py -h`
+
+If you run into problems, check the warnings/errors in output and re-run with `-v` (or `-vv`) for more detail.
