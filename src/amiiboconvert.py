@@ -526,17 +526,17 @@ def print_summary(results: list[ConversionResult]) -> None:
 
 def get_args():
     parser = argparse.ArgumentParser(
-        prog="amiibo.py",
+        prog="amiiboconvert.py",
         description="Convert amiibo .bin dumps to Flipper .nfc files",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   Single file:
-    python3 amiibo.py --file ./Wario.bin -o ./Wario.nfc
-    python3 amiibo.py --file ./Wario.bin -o ./output/
+    python3 amiiboconvert.py --file ./Wario.bin -o ./Wario.nfc
+    python3 amiiboconvert.py --file ./Wario.bin -o ./output/
   
   Directory:
-    python3 amiibo.py --dir "./Amiibo Bin" -o ./AmiiboOut
+    python3 amiiboconvert.py --dir "./Amiibo Bin" -o ./AmiiboOut
         """
     )
     
